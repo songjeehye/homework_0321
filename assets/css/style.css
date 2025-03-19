@@ -8,7 +8,6 @@
 }
 
 body{
-    background: #081b29;
     color: #ededed;
 }
 
@@ -44,17 +43,52 @@ photoshop 또는 figma의 레이어 순번과 비슷한 기능, 숫자가 클수
 */
 
 .logo{
+    position: relative;
     font-size: 25px;
     color: #ededed;
     text-decoration: none;
     font-weight: 600;
 }
 
+.logo::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation-fill-mode: forwards;
+    animation: showright 1s ease forwards;
+    /*
+    "animation: showright 1s ease forwards;" 영상에 맞추어 단독으로 사용 시, "showright"가 적용되지 않아 추가로 "animation-fill-mode: forwards;" 작성
+    */
+    animation-delay: .4s;
+}
+/*
+[ "animation-fill-mode" 속성_CSS3]
+정의: "animation-fill-mode"는 애니메이션이 끝난 후의 상태를 설정
+- none : 상태 미설정
+- forwards : 끝난 지점 유지
+- backward : 시작점으로 회귀
+- both : 애니메이션의 앞뒤 결과 조합 설정
+- inherit : 애니메이션 상태, 상위 요소한테 상속 받음
+
+[ 그 외 "animation"과 관련된 속성 ]
+- animation : 관련된 속성 일괄적 설정
+- animation-delay : 지연 시간 설정
+- animation-direction : 움직임 방향 설정
+- animation-duration : 움직임 시간 설정
+- animation-iteration-count : 반복 횟수 설정
+- animation-name : 'keyframe' 이름 설정
+- animation-play-state : 진행 상태 설정
+- animation-timing-fuction : 움직임의 속도 설정
+*/
+
 /* .navbar{
     display: flex;
     gap: 35px;
 } */
-
 .navbar a{
     font-size: 18px;
     color: #ededed;
@@ -63,7 +97,9 @@ photoshop 또는 figma의 레이어 순번과 비슷한 기능, 숫자가 클수
     margin-left: 35px;
     transition: .3s; /* hover animation */
 }
-/* "margin-left: 35px;" 대신, 부모 요소에 "gap: 35px;" 작성]ex. ".navbar{display: flex; gap: 35px;}" ('flex' 미 적용 시, 'gap' 또한 적용되지 않음) */
+/* "margin-left: 35px;" 대신, 부모 요소에 "gap: 35px;" 작성]
+ex. ".navbar{display: flex; gap: 35px;}" ('flex' 미 적용 시, 'gap' 또한 적용되지 않음) */
+
 .navbar a:hover,
 .navbar a.active{
     color: #00abf0;
@@ -71,6 +107,11 @@ photoshop 또는 figma의 레이어 순번과 비슷한 기능, 숫자가 클수
 
 .home{
     height: 100vh;
+    background: url('../img/home.jpg') no-repeat;
+    /* 여기까지만 작성 시, 이미지 반영 안됨 */
+    background-size: cover;
+    background-position: center;
+    /* 여기까지 작성해야 이미지 반영됨 */
     display: flex;
     align-items: center;
     padding: 0 10%;
@@ -79,25 +120,86 @@ photoshop 또는 figma의 레이어 순번과 비슷한 기능, 숫자가 클수
     max-width: 600px;
 }
 .home-content h1{
+    position: relative;
     font-size: 56px;
     font-weight: 700;
     line-height: 1.2;
 }
+
+.home-content h1::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    /* 추가 영역 */animation-fill-mode: forwards;
+    animation: showright 1s ease forwards;
+    animation-delay: 1s;
+}
+
 .home-content h3{
+    position: relative;
     font-size: 32px;
     font-weight: 700;
     color: #00abf0;
 }
+
+.home-content h3::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    /* 추가 영역 */animation-fill-mode: forwards;
+    animation: showright 1s ease forwards;
+    animation-delay: 1.3s;
+}
+
 .home-content p{
+    position: relative;
     font-size: 16px;
     margin: 20px 0 40px;
 }
+
+.home-content p::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    /* 추가 영역 */animation-fill-mode: forwards;
+    animation: showright 1s ease forwards;
+    animation-delay: 1.6s;
+}
+
 .home-content .btn-box{
+    position: relative;
     display: flex;
     justify-content: space-between;
     width: 345px;
     height: 50px;
 }
+
+.home-content .btn-box::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    /* 추가 영역 */animation-fill-mode: forwards;
+    animation: showright 1s ease forwards;
+    animation-delay: 1.9s;
+    z-index: 2;
+}
+
 .btn-box a{
     position: relative;
     display: inline-flex;
@@ -117,6 +219,7 @@ photoshop 또는 figma의 레이어 순번과 비슷한 기능, 숫자가 클수
     /* ".btn-box a:hover::before{width: 100%;}" box 보다 우선순위를 두기 위해 */
     overflow: hidden;
     /* ".btn-box a:hover::before{width: 100%;}" box가 ".btn-box a"의 border 바깥으로 빠져나가는 것을 방지 */
+    transition: .5s;
 }
 /*
 [ "display: inline;" ]
@@ -143,10 +246,19 @@ photoshop 또는 figma의 레이어 순번과 비슷한 기능, 숫자가 클수
 (display: flex;) block
 (display: inline-flex;)inline(display: inline-flex;)
 */
+.btn-box a:hover{
+    color: #00abf0;
+}
 
 .btn-box a:nth-child(2){ /*last-child 변경 가능*/
     background: transparent;
     color: #00abf0;
+}
+.btn-box a:nth-child(2):hover{
+    color: #081b29;
+}
+.btn-box a:nth-child(2)::before{
+    background: #00abf0;
 }
 /*
 [ ":nth-child(n)" 가상 선택자]
@@ -181,3 +293,114 @@ ex- ":nth-child(5n)" 5의 배수 번째 요소 선택
 .btn-box a:hover::before{
     width: 100%;
 }
+/* 
+hover & before 활용 이해 확실히 안감
+"::before" 특정 요소의 가장 앞단에 새로운 content 삽입 가능 (가상 선택자)
+"::after" 특정 요소의 가장 뒷단에 새로운 content 삽입 가능 (가상 선택자)
+** 'content: "";' 요소 필수 지정 **
+*/
+
+
+.home-sci{
+    position: absolute;
+    bottom: 40px;
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-sci::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    /* 추가 영역 */animation-fill-mode: forwards;
+    animation: showright 1s ease forwards;
+    animation-delay: 2.5s;
+    z-index: 2;
+}
+
+.home-sci a{
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #00abf0;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #00abf0;
+    text-decoration: none;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+    /* ".home-sci a::before"의 transition과 동일하게 지정하여 매끄러운 animation 효과 */
+}
+.home-sci a:hover{
+    color: #081b29;
+}
+.home-sci a::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #00abf0;
+    z-index: -1;
+    transition: .5s;
+}
+.home-sci a:hover::before{
+    width: 100%;
+}
+
+.home-imghover{
+    position: absolute;
+    top: 0;
+    right: 30px;
+    width: 500px;
+    height: 100%;
+    background: transparent;
+    transition: 3s;
+    animation: manipactivehover .1s forwards;
+    animation-delay: 4s;
+    pointer-events: none;
+}
+
+.home-imghover::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120%;
+    height: 100%;
+    background: #081b29;
+    /* 추가 영역 */animation-fill-mode: forwards;
+    animation: showright 1s ease forwards;
+    animation-delay: 3s;
+    z-index: 100;
+}
+
+
+.home-imghover:hover{
+    background: #081b29;
+    opacity: .8;
+}
+
+/* KEYFRAMES ANIMATION */
+@keyframes showright {
+    100%{
+        width: 0;
+    }
+}
+@keyframes manipactivehover {
+    100%{
+        pointer-events: auto;
+    }
+}
+/* 이게 뭐야 */
