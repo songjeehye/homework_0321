@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: #081b29;
+    color: #ededed;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+/*
+"position: fixed;"를 통해 menu bar를 최상단에 고정,
+"top: 0;", "left: 0;" 속성 추가로 header의 top과 left에 고정
+양 사이드에 빈틈없이 menu bar를 고정하고 싶다면,
+1. "top: 0;" + "left: 0;" + "right: 0;"
+2. "width: 100%;"
+>> 이럴 경우, 'header'의 영역이 부모인 'body'를 벗어나면서 하위 요소들이 가려지는 경우가 생기므로 'body'에 "padding-top"을 menu bar의 height 값만큼 추가하면 쉽게 해결할 수 있다.
+
+[position 속성]
+1. static : 디폴트값, 굳이 지정하지 않아도 기본 속성
+2. relative : static 위치를 기준으로 top, right, bottom, left 방향으로 이동
+3. absolute : 부모를 기준으로 top, right, bottom, left 방향으로 이동 ('static' 속성 무시하며, 부모 요소에 'relative, absolute, fixed'와 같은 tag가 주어지지 않았다면 가장 윗 tag를 기준으로 방향 이동)
+4. fixed : 특정 위치에 고정, scroll을 조절하여도 위치 불변
+5. sticky : scroll을 하지 않을 경우 'static' 속성과 같은 동작, scroll을 할 경우 'fixed'속성과 같은 동작 (부모 요소 안에 공간을 차지하기 때문_"backdrop-filter: blur;" 속성 사용 가능)
+*top, right, bottom, left 값은 paading과 비슷한 기능*
+
+[z-index tag]
+photoshop 또는 figma의 레이어 순번과 비슷한 기능, 숫자가 클수록 우선 순위 (0~999 )
+*/
+
+.logo{
+    font-size: 25px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* .navbar{
+    display: flex;
+    gap: 35px;
+} */
+
+.navbar a{
+    font-size: 18px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    transition: .3s; /* hover animation */
+}
+/* "margin-left: 35px;" 대신, 부모 요소에 "gap: 35px;" 작성]ex. ".navbar{display: flex; gap: 35px;}" ('flex' 미 적용 시, 'gap' 또한 적용되지 않음) */
+.navbar a:hover,
+.navbar a.active{
+    color: #00abf0;
+}
+
+.home{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+.home-content{
+    max-width: 600px;
+}
+.home-content h1{
+    font-size: 56px;
+    font-weight: 700;
+}
+.home-content h3{
+    font-size: 32px;
+    font-weight: 700;
+    color: #00abf0;
+}
+.home-content p{
+    font-size: 16px;
+}
+.home-content .btn-box{
+    width: 345px;
+    height: 50px;
+    background: yellowgreen;
+}
+.btn-box a{
+    width: 150px;
+    height: 100%;
+    background: #00abf0;
+    border: 2px solid #00abf0;
+    border-radius: 8px;
+}
